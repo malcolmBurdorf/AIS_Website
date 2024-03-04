@@ -13,9 +13,6 @@ document.write("\
         <li class=\"nav-item\">\
           <a class=\"nav-link\" href=\"overview.html\">Home</a>\
         </li>\
-        <li class=\"nav-item\">\
-          <a class=\"nav-link\" href=\"explore.html\">Explore</a>\
-        </li>\
         <li class=\"nav-item dropdown\">\
           <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownDataset\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\
             Dataset\
@@ -25,29 +22,19 @@ document.write("\
           </div>\
         </li>\
         <li class=\"nav-item dropdown\">\
-          <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownChallenges\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\
-            Challenges\
-          </a>\
-          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownChallenges\">\
-            <a class=\"dropdown-item\" href=\"workshop2019.html\">Detection In the Wild Challenge Workshop</a>\
-          </div>\
-        </li>\
-        <li class=\"nav-item dropdown\">\
           <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownLeaderboard\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\
             Leaderboard\
           </a>\
           <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownLeaderboard\">\
             <a class=\"dropdown-item\" href=\"full_track.html\">DIW Objects365 Full Track</a>\
-            <a class=\"dropdown-item\" href=\"tiny_track.html\">DIW Objects365 Tiny Track</a>\
-            <a class=\"dropdown-item\" href=\"crowd_human_track.html\">DIW CrowdHuman Track</a>\
           </div>\
         </li>\
         <li class=\"nav-item dropdown\">\
-          <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownAbout\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\
-            About\
+          <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownChallenges\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\
+            Submit Your Method\
           </a>\
-          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownAbout\">\
-            <a class=\"dropdown-item\" href=\"people.html\">People</a>\
+          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownChallenges\">\
+            <a class=\"dropdown-item\" href=\"workshop2019.html\">Detection In the Wild Challenge Workshop</a>\
           </div>\
         </li>\
       </ul>\
