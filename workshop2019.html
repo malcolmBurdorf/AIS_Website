@@ -16,24 +16,25 @@
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
+<style>
+.center {
+  text-align: center; /* This will center the text inside the div */
+  border: 5px transparent;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+</style>
+
   </head>
 
   <body>
 
     <header>
-
-        <!-- Navigation -->
-	    <script type="text/javascript" src="navigation.js"></script>
-
-        <div class="narrow-carousel-item active" style="background-image: url('images/bg_1400x500.jpg')">
-          <div class="narrow-carousel-caption d-none d-md-block">
-            <h1>Detection In the Wild Challenge Workshop 2019</h1>
-			<h4>17th June, 2019</h4>
-			<h4>Long Beach, CA</h4>
-            <h4>in conjunction with CVPR 2019</h4>
-          </div>
-        </div>
-    </header>
+<header>
+  <!-- Navigation -->
+  <script type="text/javascript" src="navigation.js"></script>
+</header>
 
     <!-- Page Content -->
     <div class="container">
@@ -41,395 +42,139 @@
       <!-- h1 class="my-4">Welcome to Modern Business</h1 -->
       <h1 class="my-4"></h1>
 
-      <div class="row">
+  <div><h1>Submit Your Method</h1></div> <!-- Apply the center class here -->
+      <div class="row" style="margin-top:20px;">
         <div class="col-lg-12">
+		<h3>Evaluation</h3>
           <p>
-          Object detection is of significant value to the Computer Vision and Pattern Recognition communities as it is one of the fundamental vision problems. In this workshop, we will introduce two new benchmarks for the object detection task: <b>Objects365</b> and <b>CrowdHuman</b>, both of which are designed and collected in the wild. 
-          Objects365 benchmark targets to address the large-scale detection with 365 object categories. There will be two tracks: full track with all of 365 object categories on the 600K training images and tiny track to address the 100 challenging categories on sub-set of the training images. CrowdHuman, on the other hand, is targeting the problem of human detection in the crowd. We hope these two datasets can provide the diverse and practical benchmarks to advance the research of object detection. Also, this workshop can serve as a platform to push the upper-bound of object detection research.
-          </p>
-          <p><font color="red">[News]</font> The workshop website is now online. </p>
-        </div>
+         The benchmark data contains three classes: inlier, outlier, and ignore. Inliers are regions that contain known classes from cityscapes, ignore regions are ambiguous regions that do not contain anomalies nor in the inlier region, and outlier class contains anomalous instances (see Figure 1). We evaluate the predictions only for the outlier class, without focusing on predictions of the inlier regions. The test set contains three dataset with different properties, but shares a common in-distribution dataset. We compute the final score as the average of the individual Average Precision (AP) scores.
+	  </p><p>
+For validation purposes, we provide a benchmark suite with a labeled FishyScapes (FS LaF) validation set.
+	  </p>
 
-      </div>
-      <!-- /.row -->
 
-      <hr>
-      <div class="row">
-        <div class="col-lg-12">
-          <h3>Important Dates</h3>
-        </div>
-        <div class='col-2'></div>
-        <div class="col-lg-8 bg-light">
-          <table class='table'>
-            <tbody>
-              <tr>
-                <td>Challenge Launch Date</td>
-                <td><del>April 16, 2019</del></td>
-              </tr>
-              <tr>
-                <td>Testing Data Release</td>
-                <td><del>May 10, 2019</del></td>
-              </tr>
-              <tr>
-                <td>Result Submissions Deadline</td>
-                <td><del>June 12, 2019</del></td>
-              </tr>
-              <!--tr>
-                <td>Challenge Award Notification</td>
-                <td>TBD</td>
-              </tr-->
-              <tr>
-                <td>Workshop date</td>
-                <td><del>June 17, 2019</del></td>
-              </tr>
-              <tr><td></td><td></td></tr>
-            </tbody>
-          </table>
-          <p>
-          </p>
-        </div>
 
-      </div>
-      <!-- /.row -->
+	  <p> Please note, we will not approve accounts with email addresses from free email providers, e.g., gmail.com, qq.com, web.de, etc. Only university or company email addresses will get access. See also our terms and conditions.</p>
+	  <p>
+	  Please read our terms and conditions on our submission policy and our requirements on the email address.</p>
 
-      <hr>
-      <div class="row">
-        <div class="col-lg-12">
-          <h3>Schedule</h3>
-          <h6>June 17, 2019</h6>
-          <h6>Hyatt Regency E</h6>
-	  <p>We invite the top three teams of each track to share the experience of the competition.</p>
-        </div>
-        <div class="col-lg-12 bg-light">
-          <table class='table'>
-            <tbody>
-              <tr>
-                <td>13:30-13:50</td>
-                <td>Introduction for DIW2019</td>
-                <td>Gang Yu, MEGVII</td>
-              </tr>
-              <tr>
-                <td>13:50-14:10</td>
-                <td>Outstanding team talk of DIW 2019-Objects365 track. <a href="slides/object365_talk_bytedance.pdf">[slides]</a></td>
-                <td>Hengkai Guo, Bytedance AI Lab</td>
-              </tr>
-              <tr>
-                <td>14:10-14:30</td>
-                <td>Invited talk: Feature Selective Anchor Free Module for Single Shot Object Detection. <a href="slides/fsaf-diw.pptx">[slides]</a></td>
-                <td>Chenchen Zhu, CMU</td>
-              </tr>
-              <tr>
-                <td>14:30-14:50</td>
-                <td>Invited talk: Bounding Box Regression with Uncertainty for Accurate Object Detection. <a href="slides/KLLoss CVPR'19.pdf">[slides]</a></td>
-                <td>Yihui He, CMU</td>
-              </tr>
-              <tr>
-                <td>14:50-15:15</td>
-                <td>Outstanding team talk of DIW 2019-Objects365 track. <a href="slides/Obj365_BaiduVIS.pdf">[slides]</a></td>
-                <td>Dongliang He, Baidu VIS</td>
-              </tr>
-              <tr>
-                <td>15:15-16:00</td>
-                <td>Coffee Break</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>16:00-16:40</td>
-                <td>Invited talk: Deformation Modeling in Convnets. <a href="slides/STN_DCN_short.pdf">[slides]</a></td>
-                <td>Jifeng Dai, MSRA</td>
-              </tr>
-              <tr>
-                <td>16:40-17:05</td>
-                <td>Outstanding team talk of DIW 2019-CrowdHuman Track. <a href="slides/crowdhuman present v2-Tencent AI Lab.pptx">[slides]</a></td>
-                <td>Zequn Jie, Tencent AI Lab</td>
-              </tr>
-              <tr><td></td><td></td><td></td></tr>
-            </tbody>
-          </table>
-          <p>
-          </p>
-        </div>
+	  <div class="tab-pane active" id="learn_the_details-evaluation">
+                    
+                        
+                        <script>
+                            {
+                                const content = '\u003Ch1\u003EEvaluation\u003C/h1\u003E\u000A\u003Ch2\u003EData Format and Submission Format\u003C/h2\u003E\u000A\u000A\u003Cp\u003E\u000AThe evaluation process is similar to the CityScapes evaluation framework as outlined in \u003Ca href\u003D\u0022https://github.com/mcordts/cityscapesScripts\u0022\u003ECityscapesScripts\u003C/a\u003E.\u000AA notable adjustment is the minimum object size for evaluation, set to 10 pixels.\u000A\u003C/p\u003E\u000A\u000A\u003Cp\u003E\u000ASubmissions must be packaged as a zip file, submission.zip, containing three specific folders and an optional description file.\u000AThe required structure is detailed below:\u000A\u003C/p\u003E\u000A\u000A\u003Cpre\u003E\u000Asubmission.zip\u000A├── description.txt [Optional]\u000A├── fishyscapes\u000A│   ├── 01_Hanns_Klemm_Str_45_000000_000060_gtCoarse_instanceIds_0_1.png\u000A│   ├── 01_Hanns_Klemm_Str_45_000000_000060_gtCoarse_instanceIds_1_1.png\u000A│   ├── ...\u000A│   ├── 01_Hanns_Klemm_Str_45_000000_000060_gtCoarse_instanceIds_N_1.png\u000A│   ├── 01_Hanns_Klemm_Str_45_000000_000060_gtCoarse_instanceIds_pred.txt\u000A│   ├── ...\u000A│   └── 15_Rechbergstr_Deckenpfronn_000007_000360_gtCoarse_instanceIds_pred.txt\u000A├── roadanomaly\u000A│   ├── airplane0000_InstanceIds_0_1.png\u000A│   ├── airplane0000_InstanceIds_1_1.png\u000A│   ├── ...\u000A│   ├── airplane0000_InstanceIds_N_1.png\u000A│   ├── airplane0000_InstanceIds_pred.txt\u000A│   ├── ...\u000A│   └── zebra0001_InstanceIds_pred.txt\u000A└── roadobstacle\u000A    ├── curvy\u002Dstreet_carton_1_InstanceIds_0_1.png\u000A    ├── curvy\u002Dstreet_carton_1_InstanceIds_1_1.png\u000A    ├── ...\u000A    ├── curvy\u002Dstreet_carton_1_InstanceIds_N_1.png\u000A    ├── curvy\u002Dstreet_carton_1_InstanceIds_pred.txt\u000A    ├── ...\u000A    └── snowstorm2_00_07_27.397_InstanceIds_pred.txt\u000A\u003C/pre\u003E\u000A\u000A\u003Cp\u003E\u000AEach .png file within these folders should be a binary mask, and each .txt file must list the .png files along with a corresponding class and confidence level.\u000AGiven that the evaluation is for a single class (anomaly), the class is always marked as 1.\u000A\u003C/p\u003E\u000A\u000A\u003Cpre\u003E\u000A$ cat 01_Hanns_Klemm_Str_45_000000_000080_gtCoarse_instanceIds_pred.txt\u000A01_Hanns_Klemm_Str_45_000000_000080_gtCoarse_instanceIds_0.png 1 0.1\u000A01_Hanns_Klemm_Str_45_000000_000080_gtCoarse_instanceIds_1.png 1 0.15\u000A...\u000A01_Hanns_Klemm_Str_45_000000_000080_gtCoarse_instanceIds_N.png 1 0.7\u000A\u003C/pre\u003E\u000A\u000A\u003Cp\u003E\u000AThe optional description.txt file allows submitters to provide additional details about their method, including the name of the approach, a link to the paper, and a link to the code repository.\u000AThis information is parsed and displayed in the detailed results section of the submission.\u000AAll entries are optional and we will only parse this file if it\u0027s available.\u000A\u003C/p\u003E\u000A\u000A\u003Cpre\u003E\u000Aname: DummyMethod\u000Apaper_link: https://paper\u000Acode_link: https://code\u000A\u003C/pre\u003E\u000A\u000A\u003Ch2\u003E Evaluation Criteria \u003C/h2\u003E\u000A\u000A\u003Cp\u003E\u000ASubmissions are evaluated based on Average Precision (AP) and AP50, following the CityScapes setup.\u000AParticipants are strongly encouraged to use the verification script available in \u003Ca href\u003D\u0022https://github.com/kumuji/anomaly\u002Dbenchmark\u002Dsuite\u0022\u003Ethe benchmark suite\u003C/a\u003E to ensure compliance with the submission format.\u000AThis is crucial since all submissions count to the overall maximum number of submissions allowed.\u000A\u003C/p\u003E\u000A\u000A\u003Cp\u003E\u003Cstrong\u003EImportant Note:\u003C/strong\u003E\u000AUploading the zip file with your results takes some time and there is (unfortunately) no indication of the status of the upload.\u000AYou will only see that it is being processed when your data has been successfully uploaded.\u000A\u003C/p\u003E\u000A\u000A\u003Ch3\u003EKey Recommendations\u003C/h3\u003E\u000A\u003Cul\u003E\u000A  \u003Cli\u003E\u000A    \u003Cp\u003EUse the provided verification script to avoid unnecessary submission attempts. \u003C/p\u003E\u000A  \u003C/li\u003E\u000A  \u003Cli\u003E\u000A    \u003Cp\u003EPrepare your submission carefully, following the specified file structure and naming conventions. \u003C/p\u003E\u000A  \u003C/li\u003E\u000A  \u003Cli\u003E\u000A    \u003Cp\u003EConsider including a \u003Ccode\u003Edescription.txt\u003C/code\u003E file to offer more information on your method. \u003C/p\u003E\u000A  \u003C/li\u003E\u000A\u003C/ul\u003E\u000A';
+                                document.write(DOMPurify.sanitize(
+                                    content,
+                                    { FORBID_TAGS: ['style'] }
+                                ));
+                            }
+                        </script>
+<h5>Data Format and Submission Format</h5>
 
-      </div>
-      <!-- /.row -->
+<p>
+The evaluation process is similar to the CityScapes evaluation framework as outlined in <a href="https://github.com/mcordts/cityscapesScripts">CityscapesScripts</a>.
+A notable adjustment is the minimum object size for evaluation, set to 10 pixels.
+</p>
 
-      <hr>
-      <div class="row">
-        <h3>Invited Speakers</h3>
-        <div class="col-lg-12">
-        </div>
-        <div class="col-lg-2">
-        <a href="#"><img class="card-img" src="images/zhuchenchen.jpeg" alt=""></a>
-        </div>
-        <div class="col-lg-8">
-          <p><b>Chenchen Zhu</b> is a Ph.D. student from Department of Electrical & Computer Engineering (ECE) at Carnegie Mellon University (CMU). He works with Prof. Marios Savvides at the CyLab Biometrics Center. His research interest mainly lies in computer vision and deep learning, with applications on object detection in general and facial analysis.</p>
-        </div>
+<p>
+Submissions must be packaged as a zip file, submission.zip, containing three specific folders and an optional description file.
+The required structure is detailed below:
+</p>
 
-        <div class="col-lg-12">
-        </div>
+<pre>submission.zip
+├── description.txt [Optional]
+├── fishyscapes
+│&nbsp;&nbsp; ├── 01_Hanns_Klemm_Str_45_000000_000060_gtCoarse_instanceIds_0_1.png
+│&nbsp;&nbsp; ├── 01_Hanns_Klemm_Str_45_000000_000060_gtCoarse_instanceIds_1_1.png
+│&nbsp;&nbsp; ├── ...
+│&nbsp;&nbsp; ├── 01_Hanns_Klemm_Str_45_000000_000060_gtCoarse_instanceIds_N_1.png
+│&nbsp;&nbsp; ├── 01_Hanns_Klemm_Str_45_000000_000060_gtCoarse_instanceIds_pred.txt
+│&nbsp;&nbsp; ├── ...
+│&nbsp;&nbsp; └── 15_Rechbergstr_Deckenpfronn_000007_000360_gtCoarse_instanceIds_pred.txt
+├── roadanomaly
+│&nbsp;&nbsp; ├── airplane0000_InstanceIds_0_1.png
+│&nbsp;&nbsp; ├── airplane0000_InstanceIds_1_1.png
+│&nbsp;&nbsp; ├── ...
+│&nbsp;&nbsp; ├── airplane0000_InstanceIds_N_1.png
+│&nbsp;&nbsp; ├── airplane0000_InstanceIds_pred.txt
+│&nbsp;&nbsp; ├── ...
+│&nbsp;&nbsp; └── zebra0001_InstanceIds_pred.txt
+└── roadobstacle
+    ├── curvy-street_carton_1_InstanceIds_0_1.png
+    ├── curvy-street_carton_1_InstanceIds_1_1.png
+    ├── ...
+    ├── curvy-street_carton_1_InstanceIds_N_1.png
+    ├── curvy-street_carton_1_InstanceIds_pred.txt
+    ├── ...
+    └── snowstorm2_00_07_27.397_InstanceIds_pred.txt
+</pre>
 
-        <div class="col-lg-2">
-        <a href="#"><img class="card-img" src="images/heyihui.png" alt=""></a>
-        </div>
-        <div class="col-lg-8">
-        <p>
-        <b>Yihui He</b>, He is a CMU master student, with his interest focus on Computer Vision and Deep Learning. 
-During he undergrad study he was fortunate to be an intern with Jian Sun (Megvii/Face++), Song Han (MIT) and Alan Yuille (JHU). He has a track record of contributing to CNN efficient inference. Particularly, he designed channel pruning to effectively prune channels. He further proposed AMC to sample the design space of channel pruning via reinforcement learning, which greatly improved the performance.
-He served as a reviewer for ICCV'19, CVPR'19, ICLR'19, NIPS'18, TIP and IJCV.
+<p>
+Each .png file within these folders should be a binary mask, and each .txt file must list the .png files along with a corresponding class and confidence level.
+Given that the evaluation is for a single class (anomaly), the class is always marked as 1.
+</p>
 
-        </p>
-        </div>
-        <div class="col-lg-12">
-        </div>
-        <div class="col-lg-2">
-        <a href="http://www.jifengdai.org/"><img class="card-img" src="images/daijifeng_320x320.jpg" alt=""></a>
-        </div>
-        <div class="col-lg-8">
-        <p>
-        <b>Jifeng Dai</b>, Senior Researcher in the  Visual Computing Group of Microsoft Research Asia. He received the B.S. degree and the Ph.D. degree from Tsinghua University with honor in 2009 and 2014 respectively. He was also a visiting student in University of California, Los Angeles (UCLA) from 2012 to 2013. He is the author of R-FCN and Deformable ConvNets. His citation in google scholar has exceeded 4000. His team won the COCO competition championship in 2015 and 2016 and won a third place in 2017. And he served as the Senior PC Member of the AAAI 2018.
-        </p>
-        </div>
+<pre>$ cat 01_Hanns_Klemm_Str_45_000000_000080_gtCoarse_instanceIds_pred.txt
+01_Hanns_Klemm_Str_45_000000_000080_gtCoarse_instanceIds_0.png 1 0.1
+01_Hanns_Klemm_Str_45_000000_000080_gtCoarse_instanceIds_1.png 1 0.15
+...
+01_Hanns_Klemm_Str_45_000000_000080_gtCoarse_instanceIds_N.png 1 0.7
+</pre>
 
-      </div>
-      <!-- /.row -->
+<p>
+The optional description.txt file allows submitters to provide additional details about their method, including the name of the approach, a link to the paper, and a link to the code repository.
+This information is parsed and displayed in the detailed results section of the submission.
+All entries are optional and we will only parse this file if it's available.
+</p>
 
-      <hr>
-      <div class="row">
-        <h3>Workshop Overview</h3>
-        <div class="col-lg-12">
-          The competitions platform is provided by <a href="https://www.biendata.com/">Biendata</a>. The entrances of registration and submission are about to open. Wait a moment.
-          <h4>DIW 2019-Objects365 Challenge Track</h4>
-          <p>The <a href="https://www.objects365.org/">Objects365</a> is a large dataset, designed to spur object detection research with a focus on diverse objects in the Wild. Objects365 has 365 object classes annotated on 638K images, totally with more than 10 million bounding boxes in the training set. 
-          Thus the annotations cover common objects occurring in all kinds of scene categories. 
-          Challenge for DIW 2019-Objects365 is proposed to have two tracks:
-          </p>
-          <ul>
-            <li><b>Full Track.</b>
-            The goal of Full Track is to explore the upper-bound performance of object detection systems, given all the 365 classes and 600K+ training images. 30K images are used for validation and another 100K images are used for testing. To evaluate the performance of object detection, the evaluation criteria for COCO (IOU from 0.5 to 0.95) benchmark will be adopted.
-            </li>
-            <li><b>Tiny Track.</b>
-            Tiny Track is to lower the entry threshold, accelerate the algorithm iteration speed, and study the long tail category detection problem.From the Objects365 dataset, 65 categories are selected, and contestants can training model using 10K training data.
-            </li>
-          </ul>
-          <h4>DIW 2019-CrowdHuman Challenge Track</h4>
-          <p>The <a href="http://www.crowdhuman.org/">CrowdHuman</a> dataset is large, rich-annotated and contains high diversity. It contains 15000, 4370 and 5000 images for training, validation, and testing, respectively. There are a total of 340K human instances and 22.6 persons per image from the train set, with various kinds of occlusions in the dataset. Each human instance is annotated with a head bounding-box, human visible-region bounding-box and human full-body bounding-box. 
-          We believe this dataset will serve as a solid baseline and help promote future research in human detection tasks, especially in the crowded environment. 
-          </p>
-        </div>
+<pre>name: DummyMethod
+paper_link: https://paper
+code_link: https://code
+</pre>
 
-      </div>
-      <!-- /.row -->
+<h5> Evaluation Criteria </h5>
 
-      <hr>
-      <div class="row">
-        <div class="col-lg-12">
-          <h3>Leader Board</h3>
-	      <p>Please send <a href="mailto:info@objects365.com">us</a> an email to add or modify the content.</p>
-          <p><a href="full_track.html">DIW 2019-Objects365 Full Track</a></p>
-          <p><a href="tiny_track.html">DIW 2019-Objects365 Tiny Track</a></p>
-          <p><a href="crowd_human_track.html">DIW 2019-CrowdHuman Track</a></p>
+<p>
+Submissions are evaluated based on Average Precision (AP) and AP50, following the CityScapes setup.
+Participants are strongly encouraged to use the verification script available in <a href="https://github.com/kumuji/anomaly-benchmark-suite">the benchmark suite</a> to ensure compliance with the submission format.
+This is crucial since all submissions count to the overall maximum number of submissions allowed.
+</p>
+
+<p><strong>Important Note:</strong>
+Uploading the zip file with your results takes some time and there is (unfortunately) no indication of the status of the upload.
+You will only see that it is being processed when your data has been successfully uploaded.
+</p>
+
+<h3>Key Recommendations</h3>
+<ul>
+  <li>
+    <p>Use the provided verification script to avoid unnecessary submission attempts. </p>
+  </li>
+  <li>
+    <p>Prepare your submission carefully, following the specified file structure and naming conventions. </p>
+  </li>
+  <li>
+    <p>Consider including a <code>description.txt</code> file to offer more information on your method. </p>
+  </li>
+</ul>
+
+                        
+                    
+                </div>
+
+	<h3> Terms and Conditions </h3>
+	<p> Only the training set is provided for learning the parameters of the algorithms. The test set should be used only for reporting the final results compared to other approaches - it must not be used in any way to train or tune systems, for example, by evaluating multiple parameters or feature choices and reporting the best results obtained. Thus, we impose an upper limit (currently 10 attempts) on the number of submissions. Model should be run - ideally - only once on the test data, and the results of the test set should not be used to adapt the approach.</p>
+
+	<h3> Submission Policy </h3>
+
+	<p>The evaluation server may not be used for parameter tuning since we rely here on a shared resource that is provided by the Codalab team and its sponsors. We ask each participant to upload the final results of their algorithm/paper submission only once to the server and perform all other experiments on the validation set. If participants would like to report results in their papers for multiple versions of their algorithm (e.g., parameters or features), this must be done on the validation data, and only the best-performing setting of the novel method may be submitted for evaluation to our server.</p>
+
+	<p><strong>Important note</strong>: It is NOT allowed to register multiple times to the server using different email addresses. We are actively monitoring submissions and we will revoke access and delete submissions. When registering with Codalab, we ask all participants to use a unique institutional email address (e.g., .edu) or company email address. We will not approve email addresses from free email services anymore (e.g., gmail.com, hotmail.com, qq.com). If you need to use such an email address, then contact us to approve your account.
         </div>
       </div>
       <!-- /.row -->
 
-      <hr>
-      <div class="row">
-        <h3>Organizers</h3>
-        <div class="col-12"></div>
-        <p>Contact us at <a href="mailto:info@objects365.com">info@objects365.org</a>.</p>
-        <div class="col-12"></div>
-
-        <div class="col-lg-4 col-sm-12 portfolio-item">
-          <div class="people">
-            <div class="card-img-left">
-              <a href="http://www.skicyyu.org/"><img class="card-img" src="images/yugang_320x320.jpg" alt=""></a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="http://www.skicyyu.org/">Gang Yu</a>
-              </h4>
-              <p class="card-text">Megvii Technology</p>
-            </div>
-          </div>
-        </div> <!-- Gang Yu -->
-
-        <div class="col-lg-4 col-sm-12 portfolio-item">
-          <div class="people">
-            <div class="card-img-left">
-              <a href="https://www.sshao.com/"><img class="card-img" src="images/shaoshuai_320x320.jpg" alt=""></a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="https://www.sshao.com/">Shuai Shao</a>
-              </h4>
-              <p class="card-text">Megvii Technology</p>
-            </div>
-          </div>
-        </div> <!-- Shuai Shao -->
-
-        <div class="col-lg-4 col-sm-12 portfolio-item">
-          <div class="people">
-            <div class="card-img-left">
-              <a href="http://jiansun.org/"><img class="card-img" src="images/sunjian_320x320.jpg" alt=""></a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="http://jiansun.org/">Jian Sun</a>
-              </h4>
-              <p class="card-text">Megvii Technology</p>
-            </div>
-          </div>
-        </div> <!-- Jian Sun -->
-      </div>
-
-      <div class="row">
-        <h3>Committee</h3>
-        <div class="col-12"></div>
-        <div class="col-lg-4 col-sm-12 portfolio-item">
-          <div class="people">
-            <div class="card-img-left">
-              <a href="https://scholar.google.com/citations?user=yuB-cfoAAAAJ"><img class="card-img" src="images/zhangxiangyu.jpg" alt=""></a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="https://scholar.google.com/citations?user=yuB-cfoAAAAJ">Xiangyu Zhang</a>
-              </h4>
-              <p class="card-text">Megvii Technology</p>
-            </div>
-          </div>
-        </div> <!-- Xiangyu Zhang -->
-
-        <div class="col-lg-4 col-sm-12 portfolio-item">
-          <div class="people">
-            <div class="card-img-left">
-              <a href="http://www.zemingli.com/"><img class="card-img" src="images/lzm.jpg" alt=""></a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="http://www.zemingli.com/">Zeming Li</a>
-              </h4>
-              <p class="card-text">Megvii Technology</p>
-            </div>
-          </div>
-        </div> <!-- Zeming Li -->
-
-        <div class="col-lg-4 col-sm-12 portfolio-item">
-          <div class="people">
-            <div class="card-img-left">
-              <a href="https://yichenwei.github.io/"><img class="card-img" src="images/weiyichen_320x320.jpg" alt=""></a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="https://yichenwei.github.io/">Yichen Wei</a>
-              </h4>
-              <p class="card-text">Megvii Technology</p>
-            </div>
-          </div>
-        </div> <!-- Yichen Wei -->
-
-        <div class="col-12"></div>
-        <div class="col-lg-4 col-sm-12 portfolio-item">
-          <div class="people">
-            <div class="card-img-left">
-              <a href="http://www.jifengdai.org/"><img class="card-img" src="images/daijifeng_320x320.jpg" alt=""></a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="http://www.jifengdai.org/">Jifeng Dai</a>
-              </h4>
-              <p class="card-text">Microsoft</p>
-            </div>
-          </div>
-        </div> <!-- Jifeng Dai -->
-
-        <div class="col-lg-4 col-sm-12 portfolio-item">
-          <div class="people">
-            <div class="card-img-left">
-              <a href="http://www.shaoqingren.com/"><img class="card-img" src="images/renshaoqing_320x320.jpg" alt=""></a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="http://www.shaoqingren.com/">Shaoqing Ren</a>
-              </h4>
-              <p class="card-text">Momenta.ai</p>
-            </div>
-          </div>
-        </div> <!-- Shaoqing Ren -->
-
-        <div class="col-lg-4 col-sm-12 portfolio-item">
-          <div class="people">
-            <div class="card-img-left">
-              <a href="https://cse.buffalo.edu/~jsyuan/"><img class="card-img" src="images/yuanjunsong_320x320.jpg" alt=""></a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="https://cse.buffalo.edu/~jsyuan/">Junsong Yuan</a>
-              </h4>
-              <p class="card-text">SUNY at Buffalo</p>
-            </div>
-          </div>
-        </div> <!-- Junsong Yuan -->
-
-        <div class="col-12"></div>
-        <div class="col-lg-4 col-sm-12 portfolio-item">
-          <div class="people">
-            <div class="card-img-left">
-              <a href="http://www.ganghua.org/"><img class="card-img" src="images/huagang_320x320.jpg" alt=""></a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="http://www.ganghua.org/">Gang Hua</a>
-              </h4>
-              <p class="card-text">Wormpex AI Research</p>
-            </div>
-          </div>
-        </div> <!-- Gang Hua -->
-
-        <div class="col-lg-4 col-sm-12 portfolio-item">
-          <div class="people">
-            <div class="card-img-left">
-              <a href="http://keg.cs.tsinghua.edu.cn/jietang/"><img class="card-img" src="images/tangjie_320x320.jpg" alt=""></a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="http://keg.cs.tsinghua.edu.cn/jietang/">Jie Tang</a>
-              </h4>
-              <p class="card-text">Tsinghua University</p>
-            </div>
-          </div>
-        </div> <!-- Jie Tang -->
-
-        <div class="col-lg-4 col-sm-12 portfolio-item">
-          <div class="people">
-            <div class="card-img-left">
-              <a href="http://www.idm.pku.edu.cn/~tjhuang/index-en.html"><img class="card-img" src="images/huangtiejun_320x320.jpg" alt=""></a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="http://www.idm.pku.edu.cn/~tjhuang/index-en.html">Tiejun Huang</a>
-              </h4>
-              <p class="card-text">Peking University</p>
-            </div>
-          </div>
-        </div> <!-- Jiejun Huang -->
-
-      </div>
-      <!-- /.row -->
-      <hr>
-
-      <div class="row">
-        <h3>Sponsors</h3>
-        <div class="col-12"></div>
-        <div class="col-lg-4 col-sm-12">
-          <img src="images/logo.png" width=100% alt="Megvii Technology">
-        </div>
-        <div class="col-lg-4 col-sm-12">
-          <img src="images/BAAI_logo.jpg" width=100% alt="Beijing Academy of Artificial Intelligence">
-        </div>
-
-      </div>
-      <!-- /.row -->
-      <hr>
 
     </div>
     <!-- /.container -->

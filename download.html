@@ -17,19 +17,29 @@
     <link href="css/modern-business.css" rel="stylesheet">
 
 <style>
+.flex-container {
+  display: flex;
+  align-items: center; /* Aligns items to the start of the container */
+  justify-content: space-between; /* Puts space between the items */
+}
+
+.flex-item {
+  flex: 1; /* Each flex item will take up an equal amount of space */
+}
+
+/* Update your button class as follows */
 .button {
   background-color: #0a1172; /* Blue */
   border: none;
   color: white;
-  padding: 5px 32px;
+  padding: 20px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.3s;
+  white-space: nowrap; /* Prevents the button text from wrapping */
 }
 
 .button:hover {
@@ -50,19 +60,15 @@
     <div class="container">
 
       <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">Download
+      <h1 class="mt-4 mb-3">Datasets
       </h1>
 
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="index.html">Home</a>
-        </li>
-        <li class="breadcrumb-item active">Download</li>
-      </ol>
 
       <div class="row">
         <div class="col-lg-12">
 	<h4>RoadObstacle21</h4>
+	    <div class="flex-container">
+      <div class="flex-item">
 	<p><strong>Obstacle track:</strong>
               obstacle segmentation with the road as region of interest
             </p>
@@ -75,22 +81,60 @@
               <li>different road surfaces, lighting and weather conditions available</li>
         <!-- ... other list items ... -->
       </ul>
+      </div>
         <div class="button">
             <a href="http://robotics.ethz.ch/~asl-datasets/2021_SegmentMeIfYouCan/dataset_ObstacleTrack.zip" class="button">Download Road Obstacle</a>
 
 	    </div>
+	     </div>
 
 	    </br>
 
 	<h4>RoadAnomaly21</h4>
+	    <div class="flex-container">
+      <div class="flex-item">
 	<p><strong>Anomaly track:</strong>
               general anomaly segmentation in full street scenes            </p>
+		<ul>
+        <li>100 test images with pixel-level annotations of resolution 2048x1024 and 1280x720</li>
+              <li>10 extra images published with pixel-level annotations</li>
+              <li>at least one anomalous object per image, e.g. animals and unknown vehicles</li>
+              <li>anomalies can appear anywhere in the image</li>
+              <li>anomalies widely differ in size (from 0.5% to 40% of the image)</li>
+              <li>images were collected from web resources and therefore depict a wide variety of environments</li>
+        <!-- ... other list items ... -->
+      </ul>
+
+      </div>
+
+
+
 		        <div class="button">
             <a href="http://robotics.ethz.ch/~asl-datasets/2021_SegmentMeIfYouCan/dataset_RoadAnomalyTrack.zip" class="button">Download Road Anomaly</a>
+	</div>
+      </div>
+	    </br>
+	<h4>Fishyscapes Lost & Found</h4>
+	    <div class="flex-container">
+      <div class="flex-item">
+		<ul>
+  <li>275 test images from disjoint locations.</li>
+  <li>Includes pixel-wise annotations for anomalous objects, background, and void classes.</li>
+  <li>Annotations are refined to allow for appropriate evaluation of anomaly detection.</li>
+  <li>Excludes sequences with children or bikes, as these are not considered anomalies.</li>
+  <li>Subsamples repetitive sequences, with at least every sixth image labeled.</li>
+  <li>Removes images without objects to focus on relevant data.</li>
+  <li>Captures a different distribution of street scenery compared to Cityscapes, including housing and industrial areas, and big parking lots.</li>
+  <li>Features small anomalous objects that are not uniformly distributed in the images.</li>
+  <li>Enables testing with real images to prevent overfitting on synthetic image processing.</li>
+</ul>
+      
 	</div>
         <div class="button">
             <a href="https://fishyscapes.com/dataset" class="button">Download Fishyscapes Lost and Found</a>
 	</div>
+	</div>
+	</br>
         <div class="button">
             <a href="https://segmentmeifyoucan.com/" class="button">Go To Segment Me If You Can</a>
         </div>
@@ -99,35 +143,6 @@
 	</br>
 	</br>
 
-          <p>The Objects365 dataset is available for the academic purpose only. Any researcher who uses the Objects365 dataset should obey the license as below:</p>
-        </div>
-        <div class="col-lg-10 mx-auto bg-light">
-          <p class="lead">Annotations & Website</p>
-          <p>The annotations in this dataset along with this website belong to the Objects365 Consortium and are licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License.</a> 
-          </p>
-          <p class="lead">Images</p>
-          <p>
-          The Objects365 Consortium does not own the copyright of the images. Use of images must abide by the <a href="http://creativecommons.org/licenses/by/4.0/">Flickr Terms of Use</a>. The users of the images accept full responsibility for the use of the dataset, including but not limited to the use of any copies of copyrighted images that they may create from the dataset. You will NOT distribute the above images. We will delete the images immediately if the copyright of images are violated.
-          </p>
-          <p class="lead">Software</p>
-          <p>Copyright © 2019 Objects365 Consortium</p>
-          <p>Permission is hereby granted, free of charge, to any person obtaining a copy
-          of this software and associated documentation files (the “Software”), to deal
-          in the Software without restriction, including without limitation the rights
-          to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-          copies of the Software, and to permit persons to whom the Software is
-          furnished to do so, subject to the following conditions:</p>
-          <p>The above copyright notice and this permission notice shall be included in
-          all copies or substantial portions of the Software.</p>
-          <p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-          IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-          FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-          AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-          LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-          OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-          THE SOFTWARE.</p>
-
-          <p>The Objects365 dataset is now avaliable at <a href="https://data.baai.ac.cn/details/Objects365_2020">Biendata platform</a>. Please make the registration before downloading.</p>
         </div>
       </div>
 

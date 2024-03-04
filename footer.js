@@ -2,7 +2,7 @@ document.write("\
 <div class=\"container\">\
   <p class=\"m-0 text-center text-white\">\
   info@objects365.org<br>\
-  Copyright &copy; <a> Objects365 Consortium </a></p>\
+  Copyright &copy; <a> Anomaly Instance Segmentation Consortium </a></p>\
 </div>\
 ");
 

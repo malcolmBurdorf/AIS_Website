@@ -13,28 +13,15 @@ document.write("\
         <li class=\"nav-item\">\
           <a class=\"nav-link\" href=\"overview.html\">Home</a>\
         </li>\
-        <li class=\"nav-item dropdown\">\
-          <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownDataset\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\
-            Dataset\
-          </a>\
-          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownDataset\">\
-            <a class=\"dropdown-item\" href=\"download.html\">Download</a>\
-          </div>\
+        <li class=\"nav-item\">\
+          <a class=\"nav-link\" href=\"download.html\">Dataset</a>\
         </li>\
-        <li class=\"nav-item dropdown\">\
-          <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownLeaderboard\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\
-            Leaderboard\
-          </a>\
-          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownLeaderboard\">\
-            <a class=\"dropdown-item\" href=\"full_track.html\">DIW Objects365 Full Track</a>\
-          </div>\
+        <li class=\"nav-item\">\
+          <a class=\"nav-link\" href=\"full_track.html\">Leaderboard</a>\
         </li>\
-        <li class=\"nav-item dropdown\">\
-          <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownChallenges\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\
-            Submit Your Method\
-          </a>\
-          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownChallenges\">\
-            <a class=\"dropdown-item\" href=\"workshop2019.html\">Detection In the Wild Challenge Workshop</a>\
+        <li class=\"nav-item\">\
+          <a class=\"nav-link\" href=\"workshop2019.html\">Submit Your Work</a>\
+        </li>\
           </div>\
         </li>\
       </ul>\
