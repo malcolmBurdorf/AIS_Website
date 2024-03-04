@@ -75,6 +75,8 @@
 	    <th colspan="2">FS Lost & Found</th>
 	    <th colspan="2">Road Anomaly</th>
 	    <th colspan="2">Road Obstacle</th>
+	    <th rowspan="2">Details</th>
+    </tr>
     </tr>
     <tr>
       <th>Retraining</th>
@@ -92,56 +94,73 @@
   </thead>
   <tbody>
     <tr>
-      <td>Alpha Team</td>
-      <td>Project 1</td>
-      <td class="right aligned">2</td>
-      <td class="center aligned">
-        <i class="large green checkmark icon"></i>
-      </td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
+      <td>UGainS</td>
+      <td><a href='https://arxiv.org/pdf/2308.02046.pdf' target='_blank'><i class='fa fa-file-pdf'></i></a></td>
+      <td class="right aligned"><a href='https://github.com/kumuji/ugains' target='_blank'><i class='fab fa-github'></i></a></td>
+      <td class="center aligned"><i class="large green checkmark icon"></i></td>
+      <td>FALSE</td>
+      <td>1.5s</td>
+      <td>0.85</td>
+      <td>0.1</td>
+      <td>0.75</td>
+      <td>0.2</td>
+      <td>0.65</td>
+      <td>0.25</td>
+      <td><i class='fas fa-search' onclick='toggleDetails(this)'></i></td>    </tr>
     <tr>
-      <td>Alpha Team</td>
-      <td>Project 1</td>
-      <td class="right aligned">2</td>
-      <td class="center aligned">
-        <i class="large green checkmark icon"></i>
-      </td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
+      <td>U3HS</td>
+      <td><a href='https://arxiv.org/pdf/2308.02046.pdf' target='_blank'><i class='fa fa-file-pdf'></i></a></td>
+      <td class="right aligned"><a href='https://github.com/kumuji/ugains' target='_blank'><i class='fab fa-github'></i></a></td>
+      <td class="center aligned"><i class="large green checkmark icon"></i></td>
+      <td>FALSE</td>
+      <td>1.5s</td>
+      <td>0.85</td>
+      <td>0.1</td>
+      <td>0.75</td>
+      <td>0.2</td>
+      <td>0.65</td>
+      <td>0.25</td>
+      <td><i class='fas fa-search' onclick='toggleDetails(this)'></i></td>    </tr>
     <tr>
-      <td>Beta Team</td>
-      <td>Project 1</td>
-      <td class="right aligned">52</td>
-      <td class="center aligned">
-        <i class="large green checkmark icon"></i>
-      </td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      
-    </tr>
+      <td>Mask2Anomaly</td>
+      <td><a href='https://arxiv.org/pdf/2308.02046.pdf' target='_blank'><i class='fa fa-file-pdf'></i></a></td>
+      <td class="right aligned"><a href='https://github.com/kumuji/ugains' target='_blank'><i class='fab fa-github'></i></a></td>
+      <td class="center aligned"><i class="large green checkmark icon"></i></td>
+      <td>FALSE</td>
+      <td>1.5s</td>
+      <td>0.85</td>
+      <td>0.1</td>
+      <td>0.75</td>
+      <td>0.2</td>
+      <td>0.65</td>
+      <td>0.25</td>
+      <td><i class='fas fa-search' onclick='toggleDetails(this)'></i></td>    </tr>
   </tbody>
 </table> 
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var tableBody = document.querySelector('.ui.celled.structured.table.sortable.table tbody');
+  
+  // Insert details row after each data row
+  Array.from(tableBody.rows).forEach(function(row, index) {
+    var detailsRow = tableBody.insertRow(index * 2 + 1); // Insert after current row
+    detailsRow.style.display = 'none'; // Start off hidden
+    var cell = detailsRow.insertCell(0);
+    cell.colSpan = row.cells.length; // Span across all columns
+    cell.className = 'details-row';
+    cell.innerHTML = 'Details for ' + row.cells[0].innerText; // Example details content
+  });
+});
+
+// Toggle the visibility of the corresponding details row
+function toggleDetails(icon) {
+  var currentRow = icon.closest('tr');
+  var detailsRow = currentRow.nextElementSibling; // Assumes details row is immediately after current row
+  detailsRow.style.display = detailsRow.style.display === 'none' ? '' : 'none';
+}
+</script>
+
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
