@@ -38,6 +38,26 @@
     flex-grow: 1; /* Allows the text container to take up any available space */
     text-align: left; /* Aligns the text to the right */
 }
+
+  .banner {
+    background-image: url('images/segment-banner.png');
+    background-size: cover; /* Cover the available space */
+    background-position: center; /* Center the background image */
+    height: 400px; /* Initial height - adjust based on your design */
+}
+
+  @media (max-width: 768px) { /* Adjust for tablets and below */
+    .banner {
+        height: 200px; /* Smaller height for smaller devices */
+    }
+}
+
+@media (max-width: 480px) { /* Adjust for mobile phones */
+    .banner {
+        height: 150px; /* Even smaller height for mobile devices */
+    }
+}
+
     </style>
 
   </head>
@@ -51,9 +71,9 @@
 
         <!--div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')"-->
         <!--div class="carousel-item active" style="background-image: url('http://placehold.it/1900x648')"-->
-        <div class="carousel-item active" style="background-image: url('images/segment-banner.png')">
-          <div class="carousel-caption d-none d-md-block">
-            <h1><font color="#000000">Anomaly Instance Segmentation Dataset</h1>
+        <div class="carousel-item active banner" style="background-image: url('images/segment-banner.png')">
+          <div class="carousel-caption d-md-block">
+            <h1><font color="#000000">Anomaly Instance Segmentation Benchmark</h1>
             <br>
             <!--p>Shuai Shao, Chao Peng, Zeming Li, Gang Yu, Xiangyu Zhang, Jing Li, Jian Sun</p-->
             <p> </p>
