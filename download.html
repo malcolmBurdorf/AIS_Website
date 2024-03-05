@@ -32,7 +32,7 @@
   background-color: #0a1172; /* Blue */
   border: none;
   color: white;
-  padding: 20px 32px;
+  padding: 20px 10px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
@@ -40,6 +40,7 @@
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.3s;
   white-space: nowrap; /* Prevents the button text from wrapping */
+
 }
 
 .button:hover {
@@ -68,8 +69,6 @@
       <div class="row">
         <div class="col-lg-12">
 	<h4>RoadObstacle21</h4>
-	    <div class="flex-container">
-      <div class="flex-item">
 	<p><strong>Obstacle track:</strong>
               obstacle segmentation with the road as region of interest
             </p>
@@ -82,18 +81,16 @@
               <li>different road surfaces, lighting and weather conditions available</li>
         <!-- ... other list items ... -->
       </ul>
-      </div>
         <div class="button">
             <a href="http://robotics.ethz.ch/~asl-datasets/2021_SegmentMeIfYouCan/dataset_ObstacleTrack.zip" class="button">Download Road Obstacle</a>
 
 	    </div>
+      </div>
 	     </div>
 
 	    </br>
 
 	<h4>RoadAnomaly21</h4>
-	    <div class="flex-container">
-      <div class="flex-item">
 	<p><strong>Anomaly track:</strong>
               general anomaly segmentation in full street scenes            </p>
 		<ul>
@@ -105,21 +102,17 @@
               <li>images were collected from web resources and therefore depict a wide variety of environments</li>
         <!-- ... other list items ... -->
       </ul>
-
-      </div>
-
-
-
 		        <div class="button">
             <a href="http://robotics.ethz.ch/~asl-datasets/2021_SegmentMeIfYouCan/dataset_RoadAnomalyTrack.zip" class="button">Download Road Anomaly</a>
 	</div>
-      </div>
+
+
+
+
 	    </br>
 
 	<p> The <a href="https://fishyscapes.com/">Fishyscapes Lost and Found</a> dataset is an anomaly detection for semantic segmentation dataset based off of the Cityscapes dataset:</p>
 	<h4>Fishyscapes Lost & Found</h4>
-	    <div class="flex-container">
-      <div class="flex-item">
 		<ul>
   <li>275 test images from disjoint locations.</li>
   <li>Includes pixel-wise annotations for anomalous objects, background, and void classes.</li>
@@ -131,10 +124,10 @@
   <li>Features small anomalous objects that are not uniformly distributed in the images.</li>
   <li>Enables testing with real images to prevent overfitting on synthetic image processing.</li>
 </ul>
-      
-	</div>
         <div class="button">
             <a href="https://fishyscapes.com/dataset" class="button">Download Fishyscapes Lost and Found</a>
+	</div>
+      
 	</div>
 	</div>
 	</br>

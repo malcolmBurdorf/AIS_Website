@@ -82,7 +82,7 @@ Submissions must be packaged as a zip file, submission.zip, containing three spe
 The required structure is detailed below:
 </p>
 
-<pre>submission.zip
+<code><pre>submission.zip
 ├── description.txt [Optional]
 ├── fishyscapes
 │&nbsp;&nbsp; ├── 01_Hanns_Klemm_Str_45_000000_000060_gtCoarse_instanceIds_0_1.png
@@ -108,19 +108,20 @@ The required structure is detailed below:
     ├── curvy-street_carton_1_InstanceIds_pred.txt
     ├── ...
     └── snowstorm2_00_07_27.397_InstanceIds_pred.txt
-</pre>
+	</pre></code>
 
 <p>
 Each .png file within these folders should be a binary mask, and each .txt file must list the .png files along with a corresponding class and confidence level.
 Given that the evaluation is for a single class (anomaly), the class is always marked as 1.
 </p>
 
-<pre>$ cat 01_Hanns_Klemm_Str_45_000000_000080_gtCoarse_instanceIds_pred.txt
+<code><pre>$ cat 01_Hanns_Klemm_Str_45_000000_000080_gtCoarse_instanceIds_pred.txt
+
 01_Hanns_Klemm_Str_45_000000_000080_gtCoarse_instanceIds_0.png 1 0.1
 01_Hanns_Klemm_Str_45_000000_000080_gtCoarse_instanceIds_1.png 1 0.15
 ...
 01_Hanns_Klemm_Str_45_000000_000080_gtCoarse_instanceIds_N.png 1 0.7
-</pre>
+	</pre></code>
 
 <p>
 The optional description.txt file allows submitters to provide additional details about their method, including the name of the approach, a link to the paper, and a link to the code repository.
@@ -128,10 +129,10 @@ This information is parsed and displayed in the detailed results section of the 
 All entries are optional and we will only parse this file if it's available.
 </p>
 
-<pre>name: DummyMethod
+<code><pre>name: DummyMethod
 paper_link: https://paper
 code_link: https://code
-</pre>
+	</pre></code>
 
 <h5> Evaluation Criteria </h5>
 

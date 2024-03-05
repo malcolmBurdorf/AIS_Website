@@ -16,6 +16,30 @@
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
+    <style>
+	  .people {
+    display: flex; /* Enables Flexbox */
+    align-items: center; /* Vertically aligns items in the middle */
+    justify-content: flex-start; /* Aligns items to the start of the container */
+}
+
+.card-img-left {
+    flex-shrink: 0; /* Prevents the image from shrinking */
+    margin-right: 20px; /* Adds some space between the image and the text */
+}
+
+.card-img {
+    display: block; /* Removes bottom space under the image */
+    max-width: 100%; /* Ensures the image is responsive and doesn't overflow its container */
+    height: auto; /* Keeps the image aspect ratio */
+}
+
+.card-body {
+    flex-grow: 1; /* Allows the text container to take up any available space */
+    text-align: left; /* Aligns the text to the right */
+}
+    </style>
+
   </head>
 
   <body>
@@ -62,16 +86,16 @@
 
     <p>For citation of the benchmark, please use: </p>
 
-    <pre>
+    <code> <pre>
 
-    @inproceedings{nekrasov2023ugains,
+@inproceedings{nekrasov2023ugains,
   title     = {{UGainS: Uncertainty Guided Anomaly Instance Segmentation}},
   author    = {Nekrasov, Alexey and Hermans, Alexander and Kuhnert, Lars and Leibe, Bastian},
   booktitle = {GCPR},
   year      = {2023}
 }
 
-    </pre>
+	    </pre></code>
       <hr>
 
             <div class="row">
@@ -79,11 +103,11 @@
 		  <h3> Team</h3>
           <div class="people">
             <div class="card-img-left">
-              <a href="http://www.weixiushen.com/"><img class="card-img" src="images/alexey.png" alt=""></a>
+              <a href="http://nekrasov.dev/"><img class="card-img" src="images/alexey.jpg" alt=""></a>
             </div>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="http://www.weixiushen.com/">Alexey Nekrasov</a>
+                <a href="http://nekrasov.dev/">Alexey Nekrasov</a>
               </h4>
               <p class="card-text">RWTH Aachen</p>
             </div>
