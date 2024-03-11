@@ -11,16 +11,16 @@ document.write("\
       <ul class=\"navbar-nav ml-auto\">\
         <!-- Home button -->\
         <li class=\"nav-item\">\
-          <a class=\"nav-link\" href=\"overview.html\">Home</a>\
+          <a class=\"nav-link\" href=\"home.html\">Home</a>\
         </li>\
         <li class=\"nav-item\">\
-          <a class=\"nav-link\" href=\"download.html\">Dataset</a>\
+          <a class=\"nav-link\" href=\"datasets.html\">Datasets</a>\
         </li>\
         <li class=\"nav-item\">\
-          <a class=\"nav-link\" href=\"full_track.html\">Leaderboard</a>\
+          <a class=\"nav-link\" href=\"leaderboard.html\">Leaderboard</a>\
         </li>\
         <li class=\"nav-item\">\
-          <a class=\"nav-link\" href=\"workshop2019.html\">Submit Your Work</a>\
+          <a class=\"nav-link\" href=\"submit.html\">Submit Your Work</a>\
         </li>\
           </div>\
         </li>\
