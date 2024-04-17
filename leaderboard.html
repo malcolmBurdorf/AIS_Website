@@ -1,449 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Objects365 Dataset">
-    <meta name="author" content="Shuai Shao">
-
-    <title>Anomaly Instance Segmentation Dataset</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/modern-business.css" rel="stylesheet">
-
-       <link rel="stylesheet" href="style.css">
-    	<link href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
-   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
-	<link href="/dist/css/tabulator_semanticui.min.css" rel="stylesheet">
-
-
-	<style>
-
-.tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title{
-    white-space: normal;
-}
-
-
-    /* Custom styles for this template */
-    .custom-table {
-	    margin-top: 20px;
-      margin-right: 150px; /* Adds space around the table */
-      margin-left: 150px;
-      margin-bottom: 20px
-    }
-
-    /* Add this CSS to your existing <style> block */
-.details-row {
-  background-color: #f9f9f9; /* Light grey background */
-  padding: 10px; /* Some padding */
-  border-top: 1px solid #ccc; /* Light grey top border */
-}
-
-@media (max-width: 768px) {
-  .tabulator-cell, .tabulator-col {
-    min-width: 80px; // Adjust as needed to ensure readability
-  }
-  .tabulator-row .details-row {
-    display: block; // Always display details for easier access on mobile
-  }
-}
-.custom-table {
-  min-width: 1000px; /* Adjust based on your minimum width requirements */
-}
-
-.table-responsive {
-  overflow-x: auto; /* Enable horizontal scrolling */
-}
-
-  </style>
-
-  </head>
-
-  <body>
-
-    <!-- Navigation -->
-	<script type="text/javascript" src="navigation.js"></script>
-
-    <!-- Page Content -->
-    <div class="container">
-      <br />
-      <div>
-        <h1>Leaderboard</h1>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Anomaly Instance Segmentation Dataset</title>
+      <!-- Bootstrap core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="css/modern-business.css" rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
+      <link href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+      <link href="/dist/css/tabulator_semanticui.min.css" rel="stylesheet">
+      <style>
+         .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title{
+         white-space: normal;
+         }
+         /* Custom styles for this template */
+         .custom-table {
+         margin-top: 20px;
+         margin-right: auto; /* Adds space around the table */
+         margin-left: auto;
+         margin-bottom: 20px
+         }
+         /* Add this CSS to your existing 
+      <style> block */
+         .details-row {
+         background-color: #f9f9f9; /* Light grey background */
+         padding: 10px; /* Some padding */
+         border-top: 1px solid #ccc; /* Light grey top border */
+         }
+         @media (max-width: 768px) {
+         .tabulator-cell, .tabulator-col {
+         min-width: 80px; // Adjust as needed to ensure readability
+         }
+         .tabulator-row .details-row {
+         display: block; // Always display details for easier access on mobile
+         }
+         }
+         .custom-table {
+         min-width: 1000px; /* Adjust based on your minimum width requirements */
+         }
+         .table-responsive {
+         overflow-x: auto; /* Enable horizontal scrolling */
+         }
+      </style>
+   </head>
+   <body>
+      <!-- Navigation -->
+      <script type="text/javascript" src="navigation.js"></script>
+      <!-- Page Content -->
+      <div class="container">
+         <br />
+         <div>
+            <h1>Leaderboard</h1>
+         </div>
+         <div class="row" style="margin-top: 20px;">
+            <div class="col-lg-12">
+               <h4>Task: Anomaly Instance Segmentation</h4>
+               <p>Anomaly segmentation is a task that aims to find objects that are present only at inference time and unknown during training. A typical anomaly is a deer or a cardboard box in the middle of the road. Current benchmarks use semantic segmentation to evaluate the performance of anomaly segmentation methods. However this approach is not sufficient in complex driving cases with multiple anomalies. Semantic information does not give enough information for downstream tasks such as tracking of individual instances or planning. The more challenging problem of instance segmentation remains underexplored and lacks accessible benchmarks. This benchmark addresses the lack of test evaluation protocols available to the community. In the benchmark, we extend the labels of well-known benchmarks such as SegemntMeIfYouCan and FishyScapes Lost and Found for instance segmentation. We combine two benchmarks into a unified benchmark and evaluate the most common metrics instance metrics of Average Precision.</p>
+               <h4>Metrics</h4>
+               <p><strong>AP (Average Precision)</strong> measures the average precision values across recall levels. It is a popular metric in object detection and segmentation tasks for evaluating the precision of predictions, considering both precision and recall.</p>
+               <p><strong>AP50</strong> refers to the Average Precision at 50% Intersection Over Union (IoU). It specifically measures the model performance at a threshold of 0.5 IoU, providing insight into how well the model can detect objects with a moderate overlap criterion.</p>
+               <h4>Benchmark Results</h4>
+            </div>
+         </div>
+         <div class="table-responsive">
+            <div id="result-table" class="custom-table"></div>
+         </div>
       </div>
-
-      <div class="row" style="margin-top: 20px;">
-      <div class="col-lg-12">
-        <h4>Task: Anomaly Instance Segmentation</h4>
-        <p>Anomaly segmentation is a task that aims to find objects that are present only at inference time and unknown during training. A typical anomaly is a deer or a cardboard box in the middle of the road. Current benchmarks use semantic segmentation to evaluate the performance of anomaly segmentation methods. However this approach is not sufficient in complex driving cases with multiple anomalies. Semantic information does not give enough information for downstream tasks such as tracking of individual instances or planning. The more challenging problem of instance segmentation remains underexplored and lacks accessible benchmarks. This benchmark addresses the lack of test evaluation protocols available to the community. In the benchmark, we extend the labels of well-known benchmarks such as SegemntMeIfYouCan and FishyScapes Lost and Found for instance segmentation. We combine two benchmarks into a unified benchmark and evaluate the most common metrics instance metrics of Average Precision.</p>
-        <h4>Metrics</h4>
-        <p><strong>AP (Average Precision)</strong> measures the average precision values across recall levels. It is a popular metric in object detection and segmentation tasks for evaluating the precision of predictions, considering both precision and recall.</p>
-        <p><strong>AP50</strong> refers to the Average Precision at 50% Intersection Over Union (IoU). It specifically measures the model performance at a threshold of 0.5 IoU, providing insight into how well the model can detect objects with a moderate overlap criterion.</p>
-        <h4>Benchmark Results</h4>
       </div>
-    </div>        </div>
       </div>
-    </div>
-
-    <div class="table-responsive">
-		  <div id="result-table" class="custom-table"></div>
-	</div>
-
-
-    <div class="container">
-      <br />
-
-      <div class="row" style="margin-top: 20px;">
-      <div class="col-lg-12">
-        <h4>Task: Anomaly Detection for Semantic Segmentation</h4>
-        <p>Anomaly detection for semantic segmentation is a task tha involves identifying regions or pixelsthat deviate from the normative patterns typically seen in a specific context.</p>
-        <h4>Metrics</h4>
-        <p><strong>AP (Average Precision)</strong> measures the average precision values across recall levels. It is a popular metric in object detection and segmentation tasks for evaluating the precision of predictions, considering both precision and recall.</p>
-        <p><strong>AP50</strong> refers to the Average Precision at 50% Intersection Over Union (IoU). It specifically measures the model performance at a threshold of 0.5 IoU, providing insight into how well the model can detect objects with a moderate overlap criterion.</p>
-        <h4>Benchmark Results</h4>
+      <div class="container">
+         <br />
+         <div class="row" style="margin-top: 20px;">
+            <div class="col-lg-12">
+               <h4>Task: Anomaly Detection for Semantic Segmentation</h4>
+               <p>Anomaly detection for semantic segmentation is a task tha involves identifying regions or pixelsthat deviate from the normative patterns typically seen in a specific context.</p>
+               <h4>Metrics</h4>
+               <p><strong>AP (Average Precision)</strong> measures the average precision values across recall levels. It is a popular metric in object detection and segmentation tasks for evaluating the precision of predictions, considering both precision and recall.</p>
+               <p><strong>AP50</strong> refers to the Average Precision at 50% Intersection Over Union (IoU). It specifically measures the model performance at a threshold of 0.5 IoU, providing insight into how well the model can detect objects with a moderate overlap criterion.</p>
+               <h4>Benchmark Results</h4>
+            </div>
+         </div>
+         <div class="table-responsive">
+            <div id="detect-table" class="custom-table"></div>
+         </div>
       </div>
-    </div>        </div>
       </div>
-    </div>
-
-    <div class="table-responsive">
-		  <div id="detect-table" class="custom-table"></div>
-	</div>
-
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-	  <script type="text/javascript" src="footer.js"></script>
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/tabulator.min.js"></script>
-
-<script>
-    // Custom Formatter for the Paper link
-var paperFormatter = function(cell, formatterParams, onRendered){
-// cell.getValue() will contain the URL to the paper
-console.log("asdasdf");
-var url = cell.getValue();
-if(url){
-return "<a href='" + url + "' target='_blank'><i class='fa fa-file-pdf'></i></a>";
-} else {
-return "n/a"; // or any other placeholder if there's no link
-}
-};
-
-// Custom Formatter for the Code link
-var codeFormatter = function(cell, formatterParams, onRendered){
-// cell.getValue() will contain the URL to the code repository
-var url = cell.getValue();
-if(url){
-return "<a href='" + url + "' target='_blank'><i class='fab fa-github'></i></a>";
-} else {
-return ""; // or any other placeholder if there's no link
-}
-};
-
-var detailsFormatter = function(cell, formatterParams, onRendered){
-  return "<i class='fas fa-search'></i>"; // Use the font-awesome search icon
-};
-
-var fpr95 = '<svg height="1.2em" style="margin-top: 2px" viewBox="-2 0 120 52" version="1.1"><text style="font-weight:bold;font-size:40px;line-height:125%;letter-spacing:0px;fill:#363636;fill-opacity:1;" x="-4.5" y="38">FPR</text><text style="font-weight:bold;font-size:30px;line-height:125%;letter-spacing:0px;fill:#363636;fill-opacity:1;" x="78.6" y="50.5">95</text></svg>';
-var black_cross = '<svg enable-background="new 0 0 24 24" height="14" width="14" viewBox="0 0 24 24" xml:space="preserve"><path fill="#222222" d="M22.245,4.015c0.313,0.313,0.313,0.826,0,1.139l-6.276,6.27c-0.313,0.312-0.313,0.826,0,1.14l6.273,6.272 c0.313,0.313,0.313,0.826,0,1.14l-2.285,2.277c-0.314,0.312-0.828,0.312-1.142,0l-6.271-6.271c-0.313-0.313-0.828-0.313-1.141,0 l-6.276,6.267c-0.313,0.313-0.828,0.313-1.141,0l-2.282-2.28c-0.313-0.313-0.313-0.826,0-1.14l6.278-6.269 c0.313-0.312,0.313-0.826,0-1.14L1.709,5.147c-0.314-0.313-0.314-0.827,0-1.14l2.284-2.278C4.308,1.417,4.821,1.417,5.135,1.73 L11.405,8c0.314,0.314,0.828,0.314,1.141,0.001l6.276-6.267c0.312-0.312,0.826-0.312,1.141,0L22.245,4.015z"></path></svg>';
-var black_tick = '<svg enable-background="new 0 0 24 24" height="14" width="14" viewBox="0 0 24 24" xml:space="preserve"><path fill="#222222" clip-rule="evenodd" d="M21.652,3.211c-0.293-0.295-0.77-0.295-1.061,0L9.41,14.34 c-0.293,0.297-0.771,0.297-1.062,0L3.449,9.351C3.304,9.203,3.114,9.13,2.923,9.129C2.73,9.128,2.534,9.201,2.387,9.351 l-2.165,1.946C0.078,11.445,0,11.63,0,11.823c0,0.194,0.078,0.397,0.223,0.544l4.94,5.184c0.292,0.296,0.771,0.776,1.062,1.07 l2.124,2.141c0.292,0.293,0.769,0.293,1.062,0l14.366-14.34c0.293-0.294,0.293-0.777,0-1.071L21.652,3.211z" fill-rule="evenodd"></path></svg>';
-
-var tabledata2 = [
-{
-"method": "U3HS", // Corresponds to the "Score" column
-"requires_retraining": "TRUE", // Corresponds to the "retraining" sub-column under "Method Requirements"
-"requires_ood_data": "FALSE", // Corresponds to the "OoD Data" sub-column under "Method Requirements"
-"runtime": "1.5s", // Corresponds to the "runtime" sub-column under "Method Requirements"
-"LaF_AP": 0.85, // Corresponds to the "AP" sub-column under "FS Lost & Found"
-"LaF_FPR@95%TPR": 0.1, // Corresponds to the "AP50" sub-column under "FS Lost & Found"
-"static_AP": 0.75, // Corresponds to the "AP" sub-column under "Road Anomaly"
-"static_FPR@95%TPR": 0.2, // Corresponds to the "AP50" sub-column under "Road Anomaly"
-"webaug22_AP": 0.65, // Corresponds to the "AP" sub-column under "Road Obstacle"
-"webaug22_FPR@95%TPR": 0.25, // Corresponds to the "AP50" sub-column under "Road Obstacle"
-"paper": "https://arxiv.org/pdf/2209.05407.pdf", // Additional data that might be used in group headers or elsewhere
-"code": "" // Link to the paper, also for use in group headers or other custom functionalities
-},
-{
-"method": "UGainS", // Corresponds to the "Score" column
-"requires_retraining": "TRUE", // Corresponds to the "retraining" sub-column under "Method Requirements"
-"requires_ood_data": "FALSE", // Corresponds to the "OoD Data" sub-column under "Method Requirements"
-"runtime": "1.5s", // Corresponds to the "runtime" sub-column under "Method Requirements"
-"LaF_AP": 0.85, // Corresponds to the "AP" sub-column under "FS Lost & Found"
-"LaF_FPR@95%TPR": 0.1, // Corresponds to the "AP50" sub-column under "FS Lost & Found"
-"static_AP": 0.75, // Corresponds to the "AP" sub-column under "Road Anomaly"
-"static_FPR@95%TPR": 0.2, // Corresponds to the "AP50" sub-column under "Road Anomaly"
-"webaug22_AP": 0.65, // Corresponds to the "AP" sub-column under "Road Obstacle"
-"webaug22_FPR@95%TPR": 0.25, // Corresponds to the "AP50" sub-column under "Road Obstacle"
-"paper": "https://arxiv.org/pdf/2308.02046.pdf",
-"code": "https://github.com/kumuji/ugains" },
-{
-"method": "Mask2Anomaly", // Corresponds to the "Score" column
-"requires_retraining": "TRUE", // Corresponds to the "retraining" sub-column under "Method Requirements"
-"requires_ood_data": "FALSE", // Corresponds to the "OoD Data" sub-column under "Method Requirements"
-"runtime": "1.5s", // Corresponds to the "runtime" sub-column under "Method Requirements"
-"LaF_AP": 0.85, // Corresponds to the "AP" sub-column under "FS Lost & Found"
-"LaF_FPR@95%TPR": 0.1, // Corresponds to the "AP50" sub-column under "FS Lost & Found"
-"static_AP": 0.75, // Corresponds to the "AP" sub-column under "Road Anomaly"
-"static_FPR@95%TPR": 0.2, // Corresponds to the "AP50" sub-column under "Road Anomaly"
-"webaug22_AP": 0.65, // Corresponds to the "AP" sub-column under "Road Obstacle"
-"webaug22_FPR@95%TPR": 0.25, // Corresponds to the "AP50" sub-column under "Road Obstacle"
-"paper": "https://arxiv.org/pdf/2307.13316.pdf", // Additional data that might be used in group headers or elsewhere
-"code": "https://github.com/shyam671/Mask2Anomaly-Unmasking-Anomalies-in-Road-Scene-Segmentation" // Link to the paper, also for use in group headers or other custom functionalities
-},
-// More entries as needed...
-];
-//create Tabulator on DOM element with id "example-table"
-var table = new Tabulator("#result-table", {
- rowFormatter:function(row){
-    // This callback runs each time a row is rendered
-    var element = row.getElement();
-    var details = document.createElement("div");
-    details.style.display = "none"; // Start off hidden
-    details.className = "details-row";
-    details.textContent = "Details go here"; // Replace with actual details content
-    element.appendChild(details);
-  },
-height:150, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
-responsiveLayout:"hidden",
-width:90,
-layout:"fitColumns", //fit columns to width of table (optional)
-data:tabledata2,
-columns:[ //Define Table Columns
-{title:"Method", field:"method"},
-{title:"Paper", field: "paper", formatter: paperFormatter,
-headerSort: false},
-{title:"Code", field: "code",formatter: codeFormatter,
-headerSort: false},
-{title:"Unified Score", field:"unified_score", headerSortStartingDir:"desc"},
-
-/*{title: 'Method Requirements',
-columns:[
-{title:'retraining',
-field:"requires_retraining",
-align:"center",
-formatter: 'lookup',
-formatterParams: {'FALSE': black_cross, 'TRUE': black_tick},
-headerSort:false},
-{title:'OoD Data',
-field:"requires_ood_data",
-align:"center",
-formatter: 'lookup',
-formatterParams: {'FALSE': black_cross, 'TRUE': black_tick},
-headerSort:false},
-{title:'runtime',
-field:"runtime",
-align:"right",
-headerSort:false}
-]}*/,
-{//column group
-title:"FS Lost & Found",
-columns:[
-{title:"AP",
-field:"LaF_AP",
-align:"right",
-cssClass:"column-group-left",
-sorter:"number",
-sorterParams:{alignEmptyValues: 'bottom'},
-headerSortStartingDir:"desc"},
-{title:"AP50",
-field:"LaF_FPR@95%TPR",
-align:"right",
-sorter:"number",
-sorterParams:{alignEmptyValues: 'bottom'},
-headerSortStartingDir:"asc"},
-],
-},
-{//column group
-title:"Road Anomaly",
-columns:[
-{title:"AP",
-field:"static_AP",
-align:"right",
-cssClass:"column-group-left",
-sorter:"number",
-sorterParams:{alignEmptyValues: 'bottom'},
-headerSortStartingDir:"desc"},
-{title:"AP50",
-field:"static_FPR@95%TPR",
-align:"right",
-sorter:"number",
-sorterParams:{alignEmptyValues: 'bottom'},
-headerSortStartingDir:"asc"},
-],
-},
-{//column group
-title:"Road Obstacle",
-columns:[
-{title:"AP",
-field: "webaug22_AP",
-align:"right",
-cssClass:"column-group-left",
-sorter:"number",
-sorterParams:{alignEmptyValues: 'bottom'},
-headerSortStartingDir:"desc"},
-{title:"AP50",
-field:"webaug22_FPR@95%TPR",
-align:"right",
-sorter:"number",
-sorterParams:{alignEmptyValues: 'bottom'},
-headerSortStartingDir:"asc"},
-],
-},
-	    /*{title:"Details", field:"details", formatter: detailsFormatter, width: 80, headerSort:false, cellClick:function(e, cell){
-  // This callback will run when the details icon is clicked
-   var detailsRow = cell.getRow().getElement().querySelector(".details-row");
-      if(detailsRow.style.display === "none"){
-        detailsRow.style.display = "";
-      }else{
-        detailsRow.style.display = "none";
-      }
-    }},*/
-],
-initialSort:[{column:"LaF_AP", dir:"desc"}],
-groupToggleElement:false, //no toggeling
-
-});
-
-//create Tabulator on DOM element with id "example-table"
-var detect_table = new Tabulator("#detect-table", {
- rowFormatter:function(row){
-    // This callback runs each time a row is rendered
-    var element = row.getElement();
-    var details = document.createElement("div");
-    details.style.display = "none"; // Start off hidden
-    details.className = "details-row";
-    details.textContent = "Details go here"; // Replace with actual details content
-    element.appendChild(details);
-  },
-height:150, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
-responsiveLayout:"hidden",
-width:90,
-layout:"fitColumns", //fit columns to width of table (optional)
-data:tabledata2,
-columns:[ //Define Table Columns
-{title:"Method", field:"method"},
-{title:"Paper", field: "paper", formatter: paperFormatter,
-headerSort: false},
-{title:"Code", field: "code",formatter: codeFormatter,
-headerSort: false},
-{title:"Unified Score", field:"unified_score", headerSortStartingDir:"desc"},
-
-/*{title: 'Method Requirements',
-columns:[
-{title:'retraining',
-field:"requires_retraining",
-align:"center",
-formatter: 'lookup',
-formatterParams: {'FALSE': black_cross, 'TRUE': black_tick},
-headerSort:false},
-{title:'OoD Data',
-field:"requires_ood_data",
-align:"center",
-formatter: 'lookup',
-formatterParams: {'FALSE': black_cross, 'TRUE': black_tick},
-headerSort:false},
-{title:'runtime',
-field:"runtime",
-align:"right",
-headerSort:false}
-]}*/,
-{//column group
-title:"FS Lost & Found",
-columns:[
-{title:"AP",
-field:"LaF_AP",
-align:"right",
-cssClass:"column-group-left",
-sorter:"number",
-sorterParams:{alignEmptyValues: 'bottom'},
-headerSortStartingDir:"desc"},
-{title:"AP50",
-field:"LaF_FPR@95%TPR",
-align:"right",
-sorter:"number",
-sorterParams:{alignEmptyValues: 'bottom'},
-headerSortStartingDir:"asc"},
-],
-},
-{//column group
-title:"Road Anomaly",
-columns:[
-{title:"AP",
-field:"static_AP",
-align:"right",
-cssClass:"column-group-left",
-sorter:"number",
-sorterParams:{alignEmptyValues: 'bottom'},
-headerSortStartingDir:"desc"},
-{title:"AP50",
-field:"static_FPR@95%TPR",
-align:"right",
-sorter:"number",
-sorterParams:{alignEmptyValues: 'bottom'},
-headerSortStartingDir:"asc"},
-],
-},
-{//column group
-title:"Road Obstacle",
-columns:[
-{title:"AP",
-field: "webaug22_AP",
-align:"right",
-cssClass:"column-group-left",
-sorter:"number",
-sorterParams:{alignEmptyValues: 'bottom'},
-headerSortStartingDir:"desc"},
-{title:"AP50",
-field:"webaug22_FPR@95%TPR",
-align:"right",
-sorter:"number",
-sorterParams:{alignEmptyValues: 'bottom'},
-headerSortStartingDir:"asc"},
-],
-},
-	    /*{title:"Details", field:"details", formatter: detailsFormatter, width: 80, headerSort:false, cellClick:function(e, cell){
-  // This callback will run when the details icon is clicked
-   var detailsRow = cell.getRow().getElement().querySelector(".details-row");
-      if(detailsRow.style.display === "none"){
-        detailsRow.style.display = "";
-      }else{
-        detailsRow.style.display = "none";
-      }
-    }},*/
-],
-initialSort:[{column:"LaF_AP", dir:"desc"}],
-groupToggleElement:false, //no toggeling
-
-});
-
-
-
-var table = new Tabulator("#example-table", {
-    theme: "semantic-ui", // Set the theme to Semantic UI
-    columns: [
-        // Define a structured column with nested subcolumns
-        {
-            title: "Name", columns: [
-                {title: "First Name", field: "first_name", headerSort: true},
-                {title: "Last Name", field: "last_name", headerSort: true},
-            ]
-        },
-        // More columns...
-    ],
-    // Additional Tabulator options...
-});
-
-</script>
-
-
-  </body>
-
+      </div>
+      <!-- Footer -->
+      <footer class="py-5 bg-dark">
+         <script type="text/javascript" src="footer.js"></script>
+      </footer>
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/tabulator.min.js"></script>
+      <script>
+         // Custom Formatter for the Paper link
+         var paperFormatter = function(cell, formatterParams, onRendered){
+         // cell.getValue() will contain the URL to the paper
+         console.log("asdasdf");
+         var url = cell.getValue();
+         if(url){
+         return "<a href='" + url + "' target='_blank'><i class='fa fa-file-pdf'></i></a>";
+         } else {
+         return "n/a"; // or any other placeholder if there's no link
+         }
+         };
+         
+         // Custom Formatter for the Code link
+         var codeFormatter = function(cell, formatterParams, onRendered){
+         // cell.getValue() will contain the URL to the code repository
+         var url = cell.getValue();
+         if(url){
+         return "<a href='" + url + "' target='_blank'><i class='fab fa-github'></i></a>";
+         } else {
+         return ""; // or any other placeholder if there's no link
+         }
+         };
+         
+         var detailsFormatter = function(cell, formatterParams, onRendered){
+         return "<i class='fas fa-search'></i>"; // Use the font-awesome search icon
+         };
+         
+         var fpr95 = '<svg height="1.2em" style="margin-top: 2px" viewBox="-2 0 120 52" version="1.1"><text style="font-weight:bold;font-size:40px;line-height:125%;letter-spacing:0px;fill:#363636;fill-opacity:1;" x="-4.5" y="38">FPR</text><text style="font-weight:bold;font-size:30px;line-height:125%;letter-spacing:0px;fill:#363636;fill-opacity:1;" x="78.6" y="50.5">95</text></svg>';
+         var black_cross = '<svg enable-background="new 0 0 24 24" height="14" width="14" viewBox="0 0 24 24" xml:space="preserve"><path fill="#222222" d="M22.245,4.015c0.313,0.313,0.313,0.826,0,1.139l-6.276,6.27c-0.313,0.312-0.313,0.826,0,1.14l6.273,6.272 c0.313,0.313,0.313,0.826,0,1.14l-2.285,2.277c-0.314,0.312-0.828,0.312-1.142,0l-6.271-6.271c-0.313-0.313-0.828-0.313-1.141,0 l-6.276,6.267c-0.313,0.313-0.828,0.313-1.141,0l-2.282-2.28c-0.313-0.313-0.313-0.826,0-1.14l6.278-6.269 c0.313-0.312,0.313-0.826,0-1.14L1.709,5.147c-0.314-0.313-0.314-0.827,0-1.14l2.284-2.278C4.308,1.417,4.821,1.417,5.135,1.73 L11.405,8c0.314,0.314,0.828,0.314,1.141,0.001l6.276-6.267c0.312-0.312,0.826-0.312,1.141,0L22.245,4.015z"></path></svg>';
+         var black_tick = '<svg enable-background="new 0 0 24 24" height="14" width="14" viewBox="0 0 24 24" xml:space="preserve"><path fill="#222222" clip-rule="evenodd" d="M21.652,3.211c-0.293-0.295-0.77-0.295-1.061,0L9.41,14.34 c-0.293,0.297-0.771,0.297-1.062,0L3.449,9.351C3.304,9.203,3.114,9.13,2.923,9.129C2.73,9.128,2.534,9.201,2.387,9.351 l-2.165,1.946C0.078,11.445,0,11.63,0,11.823c0,0.194,0.078,0.397,0.223,0.544l4.94,5.184c0.292,0.296,0.771,0.776,1.062,1.07 l2.124,2.141c0.292,0.293,0.769,0.293,1.062,0l14.366-14.34c0.293-0.294,0.293-0.777,0-1.071L21.652,3.211z" fill-rule="evenodd"></path></svg>';
+         
+         var tabledata2 = [
+         {
+         "method": "U3HS", // Corresponds to the "Score" column
+         "requires_retraining": "TRUE", // Corresponds to the "retraining" sub-column under "Method Requirements"
+         "requires_ood_data": "FALSE", // Corresponds to the "OoD Data" sub-column under "Method Requirements"
+         "runtime": "1.5s", // Corresponds to the "runtime" sub-column under "Method Requirements"
+         "LaF_AP": 0.85, // Corresponds to the "AP" sub-column under "FS Lost & Found"
+         "LaF_FPR@95%TPR": 0.1, // Corresponds to the "AP50" sub-column under "FS Lost & Found"
+         "static_AP": 0.75, // Corresponds to the "AP" sub-column under "Road Anomaly"
+         "static_FPR@95%TPR": 0.2, // Corresponds to the "AP50" sub-column under "Road Anomaly"
+         "webaug22_AP": 0.65, // Corresponds to the "AP" sub-column under "Road Obstacle"
+         "webaug22_FPR@95%TPR": 0.25, // Corresponds to the "AP50" sub-column under "Road Obstacle"
+         "paper": "https://arxiv.org/pdf/2209.05407.pdf", // Additional data that might be used in group headers or elsewhere
+         "code": "" // Link to the paper, also for use in group headers or other custom functionalities
+         },
+         {
+         "method": "UGainS", // Corresponds to the "Score" column
+         "requires_retraining": "TRUE", // Corresponds to the "retraining" sub-column under "Method Requirements"
+         "requires_ood_data": "FALSE", // Corresponds to the "OoD Data" sub-column under "Method Requirements"
+         "runtime": "1.5s", // Corresponds to the "runtime" sub-column under "Method Requirements"
+         "LaF_AP": 0.85, // Corresponds to the "AP" sub-column under "FS Lost & Found"
+         "LaF_FPR@95%TPR": 0.1, // Corresponds to the "AP50" sub-column under "FS Lost & Found"
+         "static_AP": 0.75, // Corresponds to the "AP" sub-column under "Road Anomaly"
+         "static_FPR@95%TPR": 0.2, // Corresponds to the "AP50" sub-column under "Road Anomaly"
+         "webaug22_AP": 0.65, // Corresponds to the "AP" sub-column under "Road Obstacle"
+         "webaug22_FPR@95%TPR": 0.25, // Corresponds to the "AP50" sub-column under "Road Obstacle"
+         "paper": "https://arxiv.org/pdf/2308.02046.pdf",
+         "code": "https://github.com/kumuji/ugains" },
+         {
+         "method": "Mask2Anomaly", // Corresponds to the "Score" column
+         "requires_retraining": "TRUE", // Corresponds to the "retraining" sub-column under "Method Requirements"
+         "requires_ood_data": "FALSE", // Corresponds to the "OoD Data" sub-column under "Method Requirements"
+         "runtime": "1.5s", // Corresponds to the "runtime" sub-column under "Method Requirements"
+         "LaF_AP": 0.85, // Corresponds to the "AP" sub-column under "FS Lost & Found"
+         "LaF_FPR@95%TPR": 0.1, // Corresponds to the "AP50" sub-column under "FS Lost & Found"
+         "static_AP": 0.75, // Corresponds to the "AP" sub-column under "Road Anomaly"
+         "static_FPR@95%TPR": 0.2, // Corresponds to the "AP50" sub-column under "Road Anomaly"
+         "webaug22_AP": 0.65, // Corresponds to the "AP" sub-column under "Road Obstacle"
+         "webaug22_FPR@95%TPR": 0.25, // Corresponds to the "AP50" sub-column under "Road Obstacle"
+         "paper": "https://arxiv.org/pdf/2307.13316.pdf", // Additional data that might be used in group headers or elsewhere
+         "code": "https://github.com/shyam671/Mask2Anomaly-Unmasking-Anomalies-in-Road-Scene-Segmentation" // Link to the paper, also for use in group headers or other custom functionalities
+         },
+         // More entries as needed...
+         ];
+         //create Tabulator on DOM element with id "example-table"
+         var table = new Tabulator("#result-table", {
+         rowFormatter:function(row){
+         // This callback runs each time a row is rendered
+         var element = row.getElement();
+         var details = document.createElement("div");
+         details.style.display = "none"; // Start off hidden
+         details.className = "details-row";
+         details.textContent = "Details go here"; // Replace with actual details content
+         element.appendChild(details);
+         },
+         height:150, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+         responsiveLayout:"hidden",
+         width:90,
+         layout:"fitColumns", //fit columns to width of table (optional)
+         data:tabledata2,
+         columns:[ //Define Table Columns
+         {title:"Method", field:"method"},
+         {title:"Paper", field: "paper", formatter: paperFormatter,
+         headerSort: false},
+         {title:"Code", field: "code",formatter: codeFormatter,
+         headerSort: false},
+         {title:"Unified Score", field:"unified_score", headerSortStartingDir:"desc"},
+         
+         /*{title: 'Method Requirements',
+         columns:[
+         {title:'retraining',
+         field:"requires_retraining",
+         align:"center",
+         formatter: 'lookup',
+         formatterParams: {'FALSE': black_cross, 'TRUE': black_tick},
+         headerSort:false},
+         {title:'OoD Data',
+         field:"requires_ood_data",
+         align:"center",
+         formatter: 'lookup',
+         formatterParams: {'FALSE': black_cross, 'TRUE': black_tick},
+         headerSort:false},
+         {title:'runtime',
+         field:"runtime",
+         align:"right",
+         headerSort:false}
+         ]}*/,
+         {//column group
+         title:"FS Lost & Found",
+         columns:[
+         {title:"AP",
+         field:"LaF_AP",
+         align:"right",
+         cssClass:"column-group-left",
+         sorter:"number",
+         sorterParams:{alignEmptyValues: 'bottom'},
+         headerSortStartingDir:"desc"},
+         {title:"AP50",
+         field:"LaF_FPR@95%TPR",
+         align:"right",
+         sorter:"number",
+         sorterParams:{alignEmptyValues: 'bottom'},
+         headerSortStartingDir:"asc"},
+         ],
+         },
+         {//column group
+         title:"Road Anomaly",
+         columns:[
+         {title:"AP",
+         field:"static_AP",
+         align:"right",
+         cssClass:"column-group-left",
+         sorter:"number",
+         sorterParams:{alignEmptyValues: 'bottom'},
+         headerSortStartingDir:"desc"},
+         {title:"AP50",
+         field:"static_FPR@95%TPR",
+         align:"right",
+         sorter:"number",
+         sorterParams:{alignEmptyValues: 'bottom'},
+         headerSortStartingDir:"asc"},
+         ],
+         },
+         {//column group
+         title:"Road Obstacle",
+         columns:[
+         {title:"AP",
+         field: "webaug22_AP",
+         align:"right",
+         cssClass:"column-group-left",
+         sorter:"number",
+         sorterParams:{alignEmptyValues: 'bottom'},
+         headerSortStartingDir:"desc"},
+         {title:"AP50",
+         field:"webaug22_FPR@95%TPR",
+         align:"right",
+         sorter:"number",
+         sorterParams:{alignEmptyValues: 'bottom'},
+         headerSortStartingDir:"asc"},
+         ],
+         },
+          /*{title:"Details", field:"details", formatter: detailsFormatter, width: 80, headerSort:false, cellClick:function(e, cell){
+         // This callback will run when the details icon is clicked
+         var detailsRow = cell.getRow().getElement().querySelector(".details-row");
+           if(detailsRow.style.display === "none"){
+             detailsRow.style.display = "";
+           }else{
+             detailsRow.style.display = "none";
+           }
+         }},*/
+         ],
+         initialSort:[{column:"LaF_AP", dir:"desc"}],
+         groupToggleElement:false, //no toggeling
+         
+         });
+         
+         //create Tabulator on DOM element with id "example-table"
+         var detect_table = new Tabulator("#detect-table", {
+         rowFormatter:function(row){
+         // This callback runs each time a row is rendered
+         var element = row.getElement();
+         var details = document.createElement("div");
+         details.style.display = "none"; // Start off hidden
+         details.className = "details-row";
+         details.textContent = "Details go here"; // Replace with actual details content
+         element.appendChild(details);
+         },
+         height:150, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+         responsiveLayout:"hidden",
+         width:90,
+         layout:"fitColumns", //fit columns to width of table (optional)
+         data:tabledata2,
+         columns:[ //Define Table Columns
+         {title:"Method", field:"method"},
+         {title:"Paper", field: "paper", formatter: paperFormatter,
+         headerSort: false},
+         {title:"Code", field: "code",formatter: codeFormatter,
+         headerSort: false},
+         {title:"Unified Score", field:"unified_score", headerSortStartingDir:"desc"},
+         
+         /*{title: 'Method Requirements',
+         columns:[
+         {title:'retraining',
+         field:"requires_retraining",
+         align:"center",
+         formatter: 'lookup',
+         formatterParams: {'FALSE': black_cross, 'TRUE': black_tick},
+         headerSort:false},
+         {title:'OoD Data',
+         field:"requires_ood_data",
+         align:"center",
+         formatter: 'lookup',
+         formatterParams: {'FALSE': black_cross, 'TRUE': black_tick},
+         headerSort:false},
+         {title:'runtime',
+         field:"runtime",
+         align:"right",
+         headerSort:false}
+         ]}*/,
+         {//column group
+         title:"FS Lost & Found",
+         columns:[
+         {title:"AP",
+         field:"LaF_AP",
+         align:"right",
+         cssClass:"column-group-left",
+         sorter:"number",
+         sorterParams:{alignEmptyValues: 'bottom'},
+         headerSortStartingDir:"desc"},
+         {title:"AP50",
+         field:"LaF_FPR@95%TPR",
+         align:"right",
+         sorter:"number",
+         sorterParams:{alignEmptyValues: 'bottom'},
+         headerSortStartingDir:"asc"},
+         ],
+         },
+         {//column group
+         title:"Road Anomaly",
+         columns:[
+         {title:"AP",
+         field:"static_AP",
+         align:"right",
+         cssClass:"column-group-left",
+         sorter:"number",
+         sorterParams:{alignEmptyValues: 'bottom'},
+         headerSortStartingDir:"desc"},
+         {title:"AP50",
+         field:"static_FPR@95%TPR",
+         align:"right",
+         sorter:"number",
+         sorterParams:{alignEmptyValues: 'bottom'},
+         headerSortStartingDir:"asc"},
+         ],
+         },
+         {//column group
+         title:"Road Obstacle",
+         columns:[
+         {title:"AP",
+         field: "webaug22_AP",
+         align:"right",
+         cssClass:"column-group-left",
+         sorter:"number",
+         sorterParams:{alignEmptyValues: 'bottom'},
+         headerSortStartingDir:"desc"},
+         {title:"AP50",
+         field:"webaug22_FPR@95%TPR",
+         align:"right",
+         sorter:"number",
+         sorterParams:{alignEmptyValues: 'bottom'},
+         headerSortStartingDir:"asc"},
+         ],
+         },
+          /*{title:"Details", field:"details", formatter: detailsFormatter, width: 80, headerSort:false, cellClick:function(e, cell){
+         // This callback will run when the details icon is clicked
+         var detailsRow = cell.getRow().getElement().querySelector(".details-row");
+           if(detailsRow.style.display === "none"){
+             detailsRow.style.display = "";
+           }else{
+             detailsRow.style.display = "none";
+           }
+         }},*/
+         ],
+         initialSort:[{column:"LaF_AP", dir:"desc"}],
+         groupToggleElement:false, //no toggeling
+         
+         });
+         
+         
+         
+      </script>
+   </body>
 </html>
+
