@@ -18,13 +18,22 @@
 
 <style>
 .center {
-  text-align: center; /* This will center the text inside the div */
-  border: 5px transparent;
-  margin: auto;
-  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content;
   padding: 10px;
 }
+
+.indented {
+	padding-left:250px;
+}
+
+.content {
+	text-align: left;
+}
 </style>
+
+
 
   </head>
 
@@ -82,7 +91,8 @@ Submissions must be packaged as a zip file, submission.zip, containing three spe
 The required structure is detailed below:
 </p>
 
-<code><pre>submission.zip
+<code><pre>submission.zip</pre>
+<div class="center"><pre>
 ├── description.txt [Optional]
 ├── fishyscapes
 │&nbsp;&nbsp; ├── 01_Hanns_Klemm_Str_45_000000_000060_gtCoarse_instanceIds_0_1.png
@@ -108,7 +118,7 @@ The required structure is detailed below:
     ├── curvy-street_carton_1_InstanceIds_pred.txt
     ├── ...
     └── snowstorm2_00_07_27.397_InstanceIds_pred.txt
-	</pre></code>
+    </pre></div></code>
 
 <p>
 Each .png file within these folders should be a binary mask, and each .txt file must list the .png files along with a corresponding class and confidence level.
@@ -129,10 +139,11 @@ This information is parsed and displayed in the detailed results section of the 
 All entries are optional and we will only parse this file if it's available.
 </p>
 
-<code><pre>name: DummyMethod
-paper_link: https://paper
+<code><pre>name: DummyMethod</pre>
+<div class="center">
+<pre>paper_link: https://paper
 code_link: https://code
-	</pre></code>
+</pre></div></code>
 
 <h5> Evaluation Criteria </h5>
 
